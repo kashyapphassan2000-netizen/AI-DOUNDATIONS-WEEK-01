@@ -16,6 +16,15 @@ Live page: https://kashyapphassan2000-netizen.github.io/AI-DOUNDATIONS-WEEK-01/ 
 | `tiny_vec/nn.py` | `Neuron` / `Layer` / `MLP` built on `Value` |
 | `tiny_vec/linalg.py` | SVD via power iteration + deflation, PCA on top |
 
+## Install from TestPyPI
+
+```bash
+pip install -i https://test.pypi.org/simple/ kashyap-tiny-vec
+python -c 'from tiny_vec import Value; v=Value(2); (v*v).backward(); print(v.grad)'   # 4.0
+```
+
+Published by `.github/workflows/publish.yml` (run it from the Actions tab) using PyPI trusted publishing, so no API token is stored anywhere.
+
 ## Run it
 
 ```bash

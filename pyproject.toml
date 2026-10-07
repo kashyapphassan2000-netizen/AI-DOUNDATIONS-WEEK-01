@@ -1,5 +1,7 @@
 [project]
-name = "tiny-vec"
+# "tiny-vec" is rejected by (Test)PyPI as too similar to the existing "tinyvec";
+# the import name stays `tiny_vec`.
+name = "kashyap-tiny-vec"
 version = "0.1.0"
 description = "Linear algebra and autograd from first principles, benchmarked vs NumPy"
 readme = "README.md"

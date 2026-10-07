@@ -57,7 +57,16 @@ Result: **11 tests pass, 80% of the code is covered by tests.**
 
 1. **Merge to `main`** (GitHub → Pull requests → New → base `main`, compare `claude/adoring-fermi-je5toz` → Create → Merge). The CI and website workflows only run on `main`. Tell me if you want me to open the pull request.
 2. **Turn on the free website:** GitHub repo → Settings → Pages → Source → choose **GitHub Actions**. After the next push to `main`, your site is at `https://kashyapphassan2000-netizen.github.io/AI-DOUNDATIONS-WEEK-01/`.
-3. **Optional, TestPyPI publish:** create an account at test.pypi.org, make an API token, then run `pip install build twine && python -m build && twine upload --repository testpypi dist/*`. I cannot do this: it needs your private token, and you should never paste a token into chat.
+3. **TestPyPI publish (no token needed):** the package is published by a GitHub workflow using "trusted publishing", which means TestPyPI trusts your GitHub repo directly and nobody handles a password or token. You do this once:
+   - Sign up at https://test.pypi.org/account/register/ and verify your email (TestPyPI also requires 2FA).
+   - Go to https://test.pypi.org/manage/account/publishing/ → "Add a new pending publisher" → GitHub, and fill in exactly:
+     - PyPI Project Name: `kashyap-tiny-vec`
+     - Owner: `kashyapphassan2000-netizen`
+     - Repository name: `AI-DOUNDATIONS-WEEK-01`
+     - Workflow name: `publish.yml`
+     - Environment name: `testpypi`
+   - Then GitHub → Actions → `publish-testpypi` → Run workflow (or tell me and I trigger it).
+   - Why the name is `kashyap-tiny-vec` and not `tiny-vec`: TestPyPI already has a project `tinyvec` and rejects names that look too similar. Your code is still imported as `from tiny_vec import ...`.
 
 Why I need these: I am only allowed to push to the one feature branch, and repo settings plus account tokens belong to you.
 
