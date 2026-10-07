@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tiny-vec</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;line-height:1.55;background:#fff;color:#111}
+  @media (prefers-color-scheme:dark){body{background:#0d1117;color:#e6edf3}a{color:#58a6ff}th,td{border-color:#30363d!important}}
+  table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:6px 10px;text-align:right}th:last-child,td:last-child{text-align:left}
+  img{max-width:100%;height:auto}
+  code{background:rgba(127,127,127,.2);padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<h1>tiny-vec</h1>
+<p>Linear algebra and reverse-mode autograd from first principles. Pure Python, no runtime dependencies; NumPy only in tests.</p>
+<p><a href="https://github.com/kashyapphassan2000-netizen/AI-DOUNDATIONS-WEEK-01">Source on GitHub</a></p>
+
+<h2>Naive vs Strassen matmul (pure Python)</h2>
+<table>
+<tr><th>n</th><th>naive (s)</th><th>strassen (s)</th><th>winner</th></tr>
+<tr><td>128</td><td>0.1211</td><td>0.1369</td><td>naive</td></tr>
+<tr><td>256</td><td>0.9501</td><td>1.0464</td><td>naive</td></tr>
+<tr><td>512</td><td>10.7407</td><td>7.2658</td><td>strassen</td></tr>
+</table>
+<p>Strassen only wins at n=512 here. NumPy was ~229x faster than the naive version at n=128.</p>
+
+<h2>PCA on iris: from scratch vs scikit-learn</h2>
+<img src="iris_pca.png" alt="Iris PCA, tiny-vec vs scikit-learn">
+
+<h2>Install</h2>
+<pre><code>pip install -e ".[dev]"
+pytest --cov=tiny_vec</code></pre>
+</body>
+</html>
